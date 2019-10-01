@@ -51,9 +51,16 @@ class Window(arcade.Window):
 
             collisions = a.collides_with_list(self.animal_list)
             for c in collisions:
-                # implement conservation of momentum here
-                # pass just does nothing. After you add your code, ou can delete what is now on line 56
-                pass
+                temp = 0
+                temp = a.dx
+                a.dx = c.dx
+                c.dx = temp
+                temp = a.dy
+                a.dy = c.dy
+                c.dy = temp
+                
+                 
+                
 
 
             if a.center_x <= MARGIN:
